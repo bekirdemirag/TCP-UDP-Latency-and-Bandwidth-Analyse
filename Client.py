@@ -3,9 +3,9 @@ import time
 import matplotlib.pyplot as plt
 
 def measure_performance(protocol, host, port, message_sizes, repetitions=100):
-    """
-    Farklı veri boyutlarında gecikme ve bant genişliği ölçer.
-    """
+    
+    #Farklı veri boyutlarında gecikme ve bant genişliği ölçer.
+    
     results = {"sizes": [], "latencies": [], "bandwidths": []}
     
     for message_size in message_sizes:
@@ -49,9 +49,9 @@ def measure_performance(protocol, host, port, message_sizes, repetitions=100):
     return results
 
 def plot_results_by_size(results, protocol):
-    """
-    Farklı veri boyutlarındaki sonuçları görselleştirir.
-    """
+    
+    #Farklı veri boyutlarındaki sonuçları görselleştirir.
+    
     sizes = results["sizes"]
     latencies = results["latencies"]
     bandwidths = results["bandwidths"]
@@ -78,7 +78,7 @@ if __name__ == "__main__":
     protocol = input("Enter protocol (tcp/udp): ").strip().lower()
     host = '127.0.0.1'
     port = 5000 if protocol == 'tcp' else 5001
-    message_sizes = [128, 512, 1024, 4096, 8192]  # Veri boyutları (bayt cinsinden)
+    message_sizes = [128, 512, 1024, 4096, 8192]  #Veri boyutları (bayt cinsinden)
 
     results = measure_performance(protocol, host, port, message_sizes)
     

@@ -2,9 +2,9 @@ import socket
 import threading
 
 def tcp_server(host='0.0.0.0', port=5000, buffer_size=8192):
-    """
-    TCP sunucu: Gelen bağlantıları kabul eder, veri alışverişini sağlar ve hataları yönetir.
-    """
+    
+    #TCP sunucu: Gelen bağlantıları kabul eder, veri alışverişini sağlar ve hataları yönetir.
+    
     try:
         server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         server_socket.bind((host, port))
@@ -41,9 +41,9 @@ def tcp_server(host='0.0.0.0', port=5000, buffer_size=8192):
         print("TCP Server shutdown.")
 
 def udp_server(host='0.0.0.0', port=5001, buffer_size=8192):
-    """
-    UDP sunucu: Gelen verileri alır, veri alışverişini sağlar ve hataları yönetir.
-    """
+    
+    #UDP sunucu: Gelen verileri alır, veri alışverişini sağlar ve hataları yönetir.
+    
     try:
         server_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         server_socket.bind((host, port))
@@ -64,7 +64,9 @@ def udp_server(host='0.0.0.0', port=5001, buffer_size=8192):
 
 if __name__ == "__main__":
     try:
+
         # TCP ve UDP sunucularını ayrı thread'lerde çalıştırma
+        
         tcp_thread = threading.Thread(target=tcp_server, args=('0.0.0.0', 5000, 8192))
         udp_thread = threading.Thread(target=udp_server, args=('0.0.0.0', 5001, 8192))
         
